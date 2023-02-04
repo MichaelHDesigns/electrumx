@@ -90,8 +90,8 @@ class Coin:
     WIF_BYTE = bytes.fromhex("80")
     ENCODE_CHECK = Base58.encode_check
     DECODE_CHECK = Base58.decode_check
-    GENESIS_HASH = ('000000000019d6689c085ae165831e93'
-                    '4ff763ae46a2a6c172b3f1b60a8ce26f')
+    GENESIS_HASH = ('37540c3c757bb77e42c168d8197447b6'
+                    'aba38c2d1ec0ddf59d2e774c41953093')
     GENESIS_ACTIVATION = 100_000_000
     # Peer discovery
     PEER_DEFAULT_PORTS = {'t': '50001', 's': '50002'}
@@ -1738,6 +1738,33 @@ class PeercoinTestnet(Peercoin):
         "testnet-electrum.peercoinexplorer.net s"
     ]
 
+    
+    class HelpTheHomelessCoin(Coin):
+    NAME = "HTH Coin"
+    SHORTNAME = "HTH"
+    NET = "mainnet"
+    P2PKH_VERBYTE = bytes.fromhex("37")
+    P2SH_VERBYTES = (bytes.fromhex("75"),)
+    WIF_BYTE = bytes.fromhex("b7")
+    GENESIS_HASH = ('37540c3c757bb77e42c168d8197447b6'
+                    'aba38c2d1ec0ddf59d2e774c41953093')
+    DESERIALIZER = lib_tx.DeserializerTxTimeSegWit
+    DAEMON = daemon.FakeEstimateFeeDaemon
+    ESTIMATE_FEE = 0.001
+    RELAY_FEE = 0.01
+    TX_COUNT = 1261652
+    TX_COUNT_HEIGHT = 1261652
+    TX_PER_BLOCK = 4
+    RPC_PORT = 9998
+    REORG_LIMIT = 5000
+
+    PEERS = [
+        "http://154.12.237.243:3001/insight/ s"
+    ]
+
+    VALUE_PER_COIN = 1000000
+    
+    
 
 class Trezarcoin(Coin):
     NAME = "Trezarcoin"
