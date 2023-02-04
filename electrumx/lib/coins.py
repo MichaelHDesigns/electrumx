@@ -1740,7 +1740,7 @@ class PeercoinTestnet(Peercoin):
 
     
     class HelpTheHomelessCoin(Coin):
-    NAME = "HTH Coin"
+    NAME = "HelpTheHomelessCoin"
     SHORTNAME = "HTH"
     NET = "mainnet"
     P2PKH_VERBYTE = bytes.fromhex("37")
